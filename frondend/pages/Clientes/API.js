@@ -1,4 +1,4 @@
-const urlClientes = "http://localhost/ArTeM01-047/clase2/backend/Controller.php?op=GetAll";
+const urlClientes = "http://localhost/SkylAb-118/clase2/backend/Controller.php?op=GetAll";
 
 export const GetClientes =async()=>{
     try {
@@ -7,6 +7,20 @@ export const GetClientes =async()=>{
         return DatosClientes
         
     } catch (error) {
-        
+        console.log(error);
     }
+}
+export function PostCliente(array){
+    try {
+        fetch("http://localhost/SkylAb-118/clase2/backend/Controller.php?op=Insert",{
+            method:"POST",
+            body:JSON.stringify(array),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
 }

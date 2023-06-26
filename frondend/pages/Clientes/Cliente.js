@@ -1,4 +1,5 @@
-import { GetClientes } from "./API.js";
+import { GetClientes, PostCliente } from "./API.js";
+
 addEventListener('DOMContentLoaded',()=>{
     cargarClientes();
 })
@@ -23,19 +24,17 @@ async function cargarClientes() {
             <td>${nombre_representante}</td>
             <td>${email_contacto}</td>
             <td>${telefono_contacto}</td>
-            
         </tr>
         `
     });
 
-    async function PostClientes(){
-        let form = document.querySelector('#Insert');
-        form.addEventListener('submit', (e)=>{
-            e.preventDefault();
-            let DataForm = Object.fromEntries(FormData(e.target));
-            console.log(DataForm);
-        })
+    let form = document.querySelector('#Insert');
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        let DataForm = Object.fromEntries(new FormData(e.target));
+        console.log(DataForm);
+        PostCliente(DataForm);
+    })
 
-    }
 
 }

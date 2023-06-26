@@ -12,6 +12,10 @@ switch($_GET["op"]){
         $Datos=$Alquiler->GetClientes();
         echo json_encode($Datos);
 
-        break;
-}
+    break;
+    case "Insert":
+        $Alquiler->Insert($Body["id_constructora"],$Body["nombre_constructora"],$Body["nit_constructora"],$Body["nombre_representante"],$Body["email_contacto"],$Body["telefono_contacto"],);
+
+    }
+
 ?>
