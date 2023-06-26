@@ -28,4 +28,14 @@ async function cargarClientes() {
         `
     });
 
+    async function PostClientes(){
+        let form = document.querySelector('#Insert');
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            let DataForm = Object.fromEntries(FormData(e.target));
+            console.log(DataForm);
+        })
+
+    }
+
 }
